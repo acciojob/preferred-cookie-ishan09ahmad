@@ -1,6 +1,6 @@
 let sizeEl = document.querySelector("#fontsize");
 let colorEl = document.querySelector("#fontcolor");
-let button = document.querySelector("input");
+let button = document.querySelector("input[type='submit']");
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
@@ -18,14 +18,6 @@ function getCookie(name) {
   return "";
 }
 
-function loadPreferences() {
-  const savedSize = getCookie("fontsize");
-  const savedColor = getCookie("fontcolor");
-
-  if (savedSize) sizeEl.value = savedSize;
-  if (savedColor) colorEl.value = savedColor;
-}
-
 function applyPreferences() {
   const size = getCookie("fontsize");
   const color = getCookie("fontcolor");
@@ -34,5 +26,4 @@ function applyPreferences() {
   if (color) document.body.style.color = color;
 }
 
-loadPreferences();
 applyPreferences();
